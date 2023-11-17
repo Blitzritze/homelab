@@ -1,0 +1,18 @@
+- name: Installed listed packages
+  hosts: all
+  vars_files:
+    - /etc/ansible/vault/secret.yaml
+  tasks:
+    - name: Installing packages
+      package:
+        update_cache: yes
+        name: "{{ item }}"
+        state: latest
+      with_items:
+        - vim
+        - nano
+        - net-tools
+        - ethtool
+        - curl
+        - wget
+        - git

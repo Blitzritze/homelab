@@ -1,0 +1,9 @@
+- name: Ping
+  hosts: all
+  vars_files:
+    - /etc/ansible/vault/secret.yaml
+  become: true
+  tasks:
+  tasks:
+    - name: Sending ping
+      ping:

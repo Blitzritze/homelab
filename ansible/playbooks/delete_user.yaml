@@ -1,0 +1,10 @@
+- name: Playbook to Create Ansible user
+  hosts: all
+  vars_files:
+    - /etc/ansible/vault/secret.yaml
+  tasks:
+    - name: Delete ansible user
+      user:
+        name: 
+        state: absent
+        remove: true

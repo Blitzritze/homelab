@@ -1,0 +1,80 @@
+all:
+  hosts:
+    proxmoxve:
+      ansible_host: 192.168.178.34
+    raspberrypi:
+      ansible_host: 192.168.178.25
+    pDocker:
+      ansible_host: 192.168.178.74
+      dependencies: proxmoxve
+    pJellyfin:
+      ansible_host: 192.168.178.80
+      dependencies: proxmoxve
+    pPibound:
+      ansible_host: 192.168.178.35
+      dependencies: proxmoxve
+    pGrafana:
+      ansible_host: 192.168.178.38
+      dependencies: proxmoxve
+    pInfluxDB:
+      ansible_host: 192.168.178.39
+      dependencies: proxmoxve
+    pPython3:
+      ansible_host: 192.168.178.36
+      dependencies: proxmoxve
+    pFileserver:
+      ansible_host: 192.168.178.76
+      dependencies: proxmoxve
+
+  children:
+    machines:
+      hosts:
+        proxmoxve:
+          ansible_become: true
+          ansible_user: root
+          ansible_become_password: "{{ proxmoxve }}"
+          ansible_ssh_password: "{{ proxmoxve }}"
+        raspberrypi:
+          ansible_become: true
+          ansible_user: root
+          ansible_become_password: "{{ raspberrypi }}"
+          ansible_ssh_password: "{{ raspberrypi }}"
+    virtual_machines:
+      hosts:
+        pDocker:
+          ansible_become: true
+          ansible_user: root
+          ansible_become_password: "{{ pdocker }}"
+          ansible_ssh_password: "{{ pdocker }}"
+        pJellyfin:
+          ansible_become: true
+          ansible_user: root
+          ansible_become_password: "{{ pjellyfin }}"
+          ansible_ssh_password: "{{ pjellyfin }}"
+    container:
+      hosts:
+        pPibound:
+          ansible_become: true
+          ansible_user: root
+          ansible_become_password: "{{ ppibound }}"
+          ansible_ssh_password: "{{ ppibound }}"
+        pGrafana:
+          ansible_become: true
+          ansible_user: root
+          ansible_become_password: "{{ pgrafana }}"
+          ansible_ssh_password: "{{ pgrafana }}"
+        pInfluxDB:
+          ansible_become: true
+          ansible_user: root
+          ansible_become_password: "{{ pinfluxdb }}"
+          ansible_ssh_password: "{{ pinfluxdb }}"
+        pPython3:
+          ansible_become: true
+          ansible_user: root
+          ansible_become_password: "{{ ppython3 }}"
+          ansible_ssh_password: "{{ ppython3 }}"
+        pFileserver:
+          ansible_become: true
+          ansible_user: root
+          ansible_become_password: "{{ pfileserver }}"
+          ansible_ssh_password: "{{ pfileserver }}"
