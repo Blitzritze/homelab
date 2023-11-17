@@ -1,0 +1,17 @@
+version: '3'
+services:
+    jellyseerr:
+       image: fallenbagel/jellyseerr:latest
+       container_name: jellyseerr
+       hostname: jellyseerr
+       environment:
+            - LOG_LEVEL=debug
+            - TZ=Europe/Berlin
+       ports:
+            - PORT:5055
+       volumes:
+            - data:/app/config
+       restart: unless-stopped
+       network_mode: bridge
+volumes:
+  data:

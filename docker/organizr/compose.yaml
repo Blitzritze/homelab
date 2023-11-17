@@ -1,0 +1,16 @@
+version: "3"
+services:
+  organizr:
+    container_name: organizr
+    hostname: organizr
+    image: organizr/organizr
+    restart: unless-stopped
+    environment:
+      - fpm=true
+    ports:
+      - PORT:80
+    volumes:
+      - data:/config
+    network_mode: bridge
+volumes:
+  data:
