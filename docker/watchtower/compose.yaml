@@ -7,8 +7,8 @@ services:
     restart: unless-stopped
     environment:
       - TZ=Europe/Berlin
-      - WATCHTOWER_CLEANUP=true
-      - WATCHTOWER_SCHEDULE=0 0 5 * * * # check for updates every day
+      - WATCHTOWER_CLEANUP=true # remove old container
+      - WATCHTOWER_SCHEDULE=0 0 5 * * * # check for updates every day at 5AM
       - WATCHTOWER_NOTIFICATIONS=gotify
       - WATCHTOWER_NOTIFICATION_GOTIFY_URL=URL
       - WATCHTOWER_NOTIFICATION_GOTIFY_TOKEN=API_KEY
