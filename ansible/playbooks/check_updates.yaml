@@ -4,43 +4,41 @@
     - /etc/ansible/vault/secret.yaml
   become: true
   tasks:
-    - name: update package cache (for Debian/Ubuntu)
-      apt:
-        update_cache: yes
-      when: ansible_distribution == 'Debian' or ansible_distribution == 'Ubuntu'
+    - name: Update package cache
+      block:
+        - name: Update package cache (for Debian/Ubuntu)
+          apt:
+            update_cache: yes
+          when: ansible_distribution in ['Debian', 'Ubuntu']
 
-    - name: Check for new updates (for Debian/Ubuntu)
-      command: "apt list --upgradable"
-      register: updates_raw
-      when: ansible_distribution == 'Debian' or ansible_distribution == 'Ubuntu'
+        - name: Update package cache (for Alpine)
+          community.general.apk:
+            update_cache: true
+          when: ansible_distribution == 'Alpine'
+      when: ansible_distribution in ['Debian', 'Ubuntu', 'Alpine']
 
-    - name: Set variable for updates (for Debian/Ubuntu)
+    - name: Check for new updates
+      block:
+        - name: Check for new updates (for Debian/Ubuntu)
+          command: "apt list --upgradable"
+          register: updates_raw
+          when: ansible_distribution in ['Debian', 'Ubuntu']
+
+        - name: Check for new updates (for Alpine)
+          command: "apk -u list"
+          register: packages
+          when: ansible_distribution == 'Alpine'
+      when: ansible_distribution in ['Debian', 'Ubuntu', 'Alpine']
+
+    - name: Set variable for updates
       set_fact:
         updates: "{{ updates_raw.stdout_lines | reject('search', '^Listing...') | list }}"
-      when: ansible_distribution == 'Debian' or ansible_distribution == 'Ubuntu'
+      when: ansible_distribution in ['Debian', 'Ubuntu'] and updates | length > 0
 
-    - name: update package cache (for Alpine)
-      community.general.apk:
-        update_cache: true
-      when: ansible_distribution == 'Alpine'
-
-    - name: check for new updates (for Alpine)
-      command: "apk -u list"
-      register: packages
-      when: ansible_distribution == 'Alpine'
-
-    - name: Send message to Gotify if updates are available (for Alpine)
+    - name: Send message to Gotify if updates are available
       uri:
         url: "http://192.168.178.74:3004/message?token={{ gotify_key }}"
         method: POST
         body_format: form-urlencoded
-        body: "title={{ inventory_hostname }}&message={{ packages.stdout_lines | join('\n') }}&priority=5"
-      when: ansible_distribution == 'Alpine' and packages.stdout_lines | length > 0
-      
-    - name: Send message to Gotify if updates are available (for Debian/Ubuntu)
-      uri:
-        url: "http://192.168.178.74:3004/message?token={{ gotify_key }}"
-        method: POST
-        body_format: form-urlencoded
-        body: "title={{ inventory_hostname }}&message={{ updates | join('\n') }}&priority=5"
-      when: (ansible_distribution == 'Debian' or ansible_distribution == 'Ubuntu') and updates | length > 0
+        body: "title={{ inventory_hostname }}&message={{ packages.stdout_lines | join('\n') if ansible_distribution == 'Alpine' else updates | join('\n') }}&priority=5"
+      when: (ansible_distribution in ['Debian', 'Ubuntu'] and updates | length > 0) or (ansible_distribution == 'Alpine' and packages.stdout_lines | length > 0)
