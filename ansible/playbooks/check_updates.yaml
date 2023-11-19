@@ -30,15 +30,15 @@
           when: ansible_distribution == 'Alpine'
       when: ansible_distribution in ['Debian', 'Ubuntu', 'Alpine']
 
-    - name: Set variable for updates
+    - name: Set variable for updates (for Debian/Ubuntu)
       set_fact:
         updates: "{{ updates_raw.stdout_lines | reject('search', '^Listing...') | list }}"
-      when: ansible_distribution in ['Debian', 'Ubuntu'] and updates | length > 0
+      when: ansible_distribution in ['Debian', 'Ubuntu']
 
     - name: Send message to Gotify if updates are available
       uri:
         url: "http://192.168.178.74:3004/message?token={{ gotify_key }}"
         method: POST
         body_format: form-urlencoded
-        body: "title={{ inventory_hostname }}&message={{ packages.stdout_lines | join('\n') if ansible_distribution == 'Alpine' else updates | join('\n') }}&priority=5"
+        body: "title={{ inventory_hostname }}&message={{ packages.stdout_lines | join('\n') if ansible_distribution == 'Alpine' else updates | default([]) | join('\n') }}&priority=5"
       when: (ansible_distribution in ['Debian', 'Ubuntu'] and updates | length > 0) or (ansible_distribution == 'Alpine' and packages.stdout_lines | length > 0)
