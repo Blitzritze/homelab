@@ -1,29 +1,29 @@
 all:
   hosts:
     proxmoxve:
-      ansible_host: 192.168.178.34
+      ansible_host: 10.0.0.11
     raspberrypi:
-      ansible_host: 192.168.178.25
-    pDocker:
-      ansible_host: 192.168.178.74
-      dependencies: proxmoxve
+      ansible_host: 10.0.0.12
     pJellyfin:
-      ansible_host: 192.168.178.80
+      ansible_host: 10.0.1.1
+      dependencies: proxmoxve
+    pDocker:
+      ansible_host: 10.0.1.2
       dependencies: proxmoxve
     pPibound:
-      ansible_host: 192.168.178.35
+      ansible_host: 10.0.2.1
       dependencies: proxmoxve
     pGrafana:
-      ansible_host: 192.168.178.38
+      ansible_host: 10.0.2.2
       dependencies: proxmoxve
     pInfluxDB:
-      ansible_host: 192.168.178.39
+      ansible_host: 10.0.2.3
       dependencies: proxmoxve
     pPython3:
-      ansible_host: 192.168.178.36
+      ansible_host: 10.0.2.4
       dependencies: proxmoxve
     pFileserver:
-      ansible_host: 192.168.178.76
+      ansible_host: 10.0.2.5
       dependencies: proxmoxve
 
   children:
