@@ -1,14 +1,14 @@
-version: "3"
+version: "3.8"
 services:
-  organizr:
-    container_name: organizr
-    hostname: dOrganizr
-    image: organizr/organizr
+  nginx:
+    container_name: npm
+    hostname: dNpm
+    image: jc21/nginx-proxy-manager:latest
     restart: unless-stopped
-    environment:
-      - fpm=true
     volumes:
-      - ./data:/config:rw
+      - ./data:/data:rw
+      - ./letsencrypt:/etc/letsencrypt:rw
+    environment: []
     networks:
       home:
         ipv4_address: IP_ADDRESS

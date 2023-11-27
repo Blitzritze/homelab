@@ -1,12 +1,16 @@
 version: "3"
 services:
   dozzle:
-    hostname: dozzle
+    hostname: dDozzle
     container_name: dozzle
     image: amir20/dozzle:latest
     restart: unless-stopped
     volumes:
       - /var/run/docker.sock:/var/run/docker.sock
-    ports:
-      - PORT:8080
-    network_mode: bridge
+    networks:
+      home:
+        ipv4_address: IP_ADDRESS
+    dns: DNS_RESOLVER
+networks:
+  home:
+    external: true

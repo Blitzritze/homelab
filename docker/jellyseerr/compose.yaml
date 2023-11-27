@@ -1,17 +1,20 @@
-version: '3'
+version: "3"
 services:
-    jellyseerr:
-       image: fallenbagel/jellyseerr:latest
-       container_name: jellyseerr
-       hostname: jellyseerr
-       environment:
-            - LOG_LEVEL=debug
-            - TZ=Europe/Berlin
-       ports:
-            - PORT:5055
-       volumes:
-            - data:/app/config
-       restart: unless-stopped
-       network_mode: bridge
-volumes:
-  data:
+  jellyseerr:
+    image: fallenbagel/jellyseerr:latest
+    container_name: jellyseerr
+    hostname: dJellyseerr
+    environment:
+      - LOG_LEVEL=debug
+      - TZ=Europe/Berlin
+    volumes:
+      - ./data:/app/config:rw
+    restart: unless-stopped
+    networks:
+      home:
+        ipv4_address: IP_ADDRESS
+    dns: DNS_RESOLVER
+    depends_on: []
+networks:
+  home:
+    external: true

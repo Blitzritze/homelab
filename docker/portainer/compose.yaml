@@ -1,0 +1,20 @@
+version: "3.3"
+services:
+  portainer-ee:
+    container_name: portainer
+    hostname: dPortainer
+    restart: always
+    volumes:
+      - /var/run/docker.sock:/var/run/docker.sock:rw
+      - ./data:/data:rw
+    image: portainer/portainer-ee:latest
+    ports: []
+    environment: []
+    networks:
+      home:
+        ipv4_address: IP_ADDRESS
+    dns: DNS_RESOLVER
+    depends_on: []
+networks:
+  home:
+    external: true

@@ -1,16 +1,18 @@
-version: '3'
+version: "3"
 services:
-    gotify:
-       image: ghcr.io/gotify/server:latest
-       container_name: gotify
-       hostname: gotify
-       environment:
-            - TZ=Europe/Berlin
-       ports:
-            - PORT:80
-       volumes:
-            - data:/app/data
-       restart: unless-stopped
-       network_mode: bridge
-volumes:
-  data:
+  gotify:
+    image: ghcr.io/gotify/server:latest
+    container_name: gotify
+    hostname: dGotify
+    environment:
+      - TZ=Europe/Berlin
+    volumes:
+      - ./data:/app/data:rw
+    restart: unless-stopped
+    networks:
+      home:
+        ipv4_address: IP_ADDRESS
+    dns: DNS_RESOLVER
+networks:
+  home:
+    external: true

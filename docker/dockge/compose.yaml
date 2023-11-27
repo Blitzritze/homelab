@@ -5,9 +5,6 @@ services:
     hostname: dockge
     image: louislam/dockge:latest
     restart: unless-stopped
-    ports:
-      # Host Port : Container Port
-      - PORT:5001
     volumes:
       - /var/run/docker.sock:/var/run/docker.sock
       - ./data:/app/data
@@ -15,4 +12,11 @@ services:
     environment:
       # Tell Dockge where is your stacks directory
       - DOCKGE_STACKS_DIR=/opt/stacks
-    network_mode: bridge
+    networks:
+      home:
+        ipv4_address: IP_ADDRESS
+    dns:
+      DNS_RESOLVER
+networks:
+  home:
+    external: true
