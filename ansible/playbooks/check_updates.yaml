@@ -37,7 +37,7 @@
 
     - name: Send message to Gotify if updates are available
       uri:
-        url: "http://192.168.178.74:3004/message?token={{ gotify_key }}"
+        url: "{{ gotify }}"
         method: POST
         body_format: form-urlencoded
         body: "title={{ inventory_hostname }}&message={{ packages.stdout_lines | join('\n') if ansible_distribution == 'Alpine' else updates | default([]) | join('\n') }}&priority=5"
