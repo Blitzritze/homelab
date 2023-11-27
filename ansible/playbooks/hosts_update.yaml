@@ -23,7 +23,7 @@
 
     - name: Send message to Gotify if reboot is required
       uri:
-        url: "http://192.168.178.74:3004/message?token={{ gotify_key }}"
+        url: "{{ gotify }}"
         method: POST
         body_format: form-urlencoded
         body: "title={{ inventory_hostname }}&message=Reboot required.&priority=5"
