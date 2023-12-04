@@ -1,6 +1,4 @@
 # My Homelab
-In my home lab, I have a Proxmox server and a Raspberry Pi.
-
 [Proxmox VE](https://www.proxmox.com/en/proxmox-virtual-environment/):
 - Containers:
     - [Pi-hole](https://github.com/pi-hole/pi-hole/#one-step-automated-install) + [Unbound](https://docs.pi-hole.net/guides/dns/unbound/)
@@ -32,8 +30,8 @@ Raspberrypi:
 - [Proxmox Backup Server](https://github.com/wofferl/proxmox-backup-arm64)
 - Backup Pi-hole + Unbound
 
-[^1]:[Some settings](<media>).
+[^1]:[Some Settings](https://github.com/Blitzritze/homelab/tree/3dbaa343cc9bb6ce9e8edc5599ff26d274491b66/media).
 
-[^2]:[Docker Compose](<docker>) files.
+[^2]:[Docker Compose](https://github.com/Blitzritze/homelab/tree/3dbaa343cc9bb6ce9e8edc5599ff26d274491b66/docker) files.
 
 [^3]:Not sure if or how long these containers will stay.
