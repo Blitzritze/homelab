@@ -1,0 +1,1 @@
+# I USE THE CUSTOM FORMATS FROM [TRASH GUIDES](https://trash-guides.info/)

@@ -1,0 +1,191 @@
+{
+
+  "name": "German Groups",
+
+  "includeCustomFormatWhenRenaming": false,
+
+  "specifications": [
+
+    {
+
+      "name": "WeebPinn",
+
+      "implementation": "ReleaseTitleSpecification",
+
+      "negate": false,
+
+      "required": false,
+
+      "fields": {
+
+        "value": "WeebPinn"
+
+      }
+
+    },
+
+    {
+
+      "name": "Hugo",
+
+      "implementation": "ReleaseTitleSpecification",
+
+      "negate": false,
+
+      "required": false,
+
+      "fields": {
+
+        "value": "Hugo"
+
+      }
+
+    },
+
+    {
+
+      "name": "Kleinmike",
+
+      "implementation": "ReleaseTitleSpecification",
+
+      "negate": false,
+
+      "required": false,
+
+      "fields": {
+
+        "value": "Kleinmike"
+
+      }
+
+    },
+
+    {
+
+      "name": "FuN",
+
+      "implementation": "ReleaseTitleSpecification",
+
+      "negate": false,
+
+      "required": false,
+
+      "fields": {
+
+        "value": "FuN"
+
+      }
+
+    },
+
+    {
+
+      "name": "Fuuko",
+
+      "implementation": "ReleaseTitleSpecification",
+
+      "negate": false,
+
+      "required": false,
+
+      "fields": {
+
+        "value": "Fuuko"
+
+      }
+
+    },
+
+    {
+
+      "name": "ABJ",
+
+      "implementation": "ReleaseTitleSpecification",
+
+      "negate": false,
+
+      "required": false,
+
+      "fields": {
+
+        "value": "ABJ"
+
+      }
+
+    },
+
+    {
+
+      "name": "DK",
+
+      "implementation": "ReleaseTitleSpecification",
+
+      "negate": false,
+
+      "required": false,
+
+      "fields": {
+
+        "value": "DK"
+
+      }
+
+    },
+
+    {
+
+      "name": "PHM",
+
+      "implementation": "ReleaseTitleSpecification",
+
+      "negate": false,
+
+      "required": false,
+
+      "fields": {
+
+        "value": "PHM"
+
+      }
+
+    },
+
+    {
+
+      "name": "German",
+
+      "implementation": "LanguageSpecification",
+
+      "negate": false,
+
+      "required": true,
+
+      "fields": {
+
+        "value": 4
+
+      }
+
+    },
+
+    {
+
+      "name": "German Sub",
+
+      "implementation": "ReleaseTitleSpecification",
+
+      "negate": true,
+
+      "required": true,
+
+      "fields": {
+
+        "value": "(?i)(Ger(man)|Ger).(Sub(bed)|(Sub(titles?))|Subs?)"
+
+      }
+
+    }
+
+  ]
+
+}

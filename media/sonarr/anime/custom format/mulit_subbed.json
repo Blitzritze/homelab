@@ -1,0 +1,29 @@
+{
+
+  "name": "Multi Sub",
+
+  "includeCustomFormatWhenRenaming": true,
+
+  "specifications": [
+
+    {
+
+      "name": "Subbed",
+
+      "implementation": "ReleaseTitleSpecification",
+
+      "negate": false,
+
+      "required": false,
+
+      "fields": {
+
+        "value": "(?i)(Multi(ple)|Multi).(Sub(bed)|(Sub(titles?))|Subs?)"
+
+      }
+
+    }
+
+  ]
+
+}

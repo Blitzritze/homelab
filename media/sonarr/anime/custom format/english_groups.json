@@ -1,0 +1,83 @@
+{
+
+  "name": "English Groups",
+
+  "includeCustomFormatWhenRenaming": false,
+
+  "specifications": [
+
+    {
+
+      "name": "JRR",
+
+      "implementation": "ReleaseTitleSpecification",
+
+      "negate": false,
+
+      "required": false,
+
+      "fields": {
+
+        "value": "JRR"
+
+      }
+
+    },
+
+    {
+
+      "name": "iAHD",
+
+      "implementation": "ReleaseTitleSpecification",
+
+      "negate": false,
+
+      "required": false,
+
+      "fields": {
+
+        "value": "iAHD"
+
+      }
+
+    },
+
+    {
+
+      "name": "EMBER",
+
+      "implementation": "ReleaseTitleSpecification",
+
+      "negate": false,
+
+      "required": false,
+
+      "fields": {
+
+        "value": "EMBER"
+
+      }
+
+    },
+
+    {
+
+      "name": "LostYears",
+
+      "implementation": "ReleaseTitleSpecification",
+
+      "negate": false,
+
+      "required": false,
+
+      "fields": {
+
+        "value": "LostYears"
+
+      }
+
+    }
+
+  ]
+
+}
