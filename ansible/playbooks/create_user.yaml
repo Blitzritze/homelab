@@ -1,12 +1,19 @@
-- name: Playbook to Create Ansible user
+- name: Playbook to Create users
   hosts: all
   vars_files:
     - /etc/ansible/vault/secret.yaml
   tasks:
-    - name: Create ansible user
+    - name: create users group
+      group:
+        name: USER
+        state: present
+
+    - name: Create user
       user:
         name: USER
-        password: PASS
-        group: sudo
+        password: "password" #must be hashed with mkpasswd
+        group: USER
+        groups: sudo
+        shell: /bin/bash
         createhome: yes
         home: /home/USER
