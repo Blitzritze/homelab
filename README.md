@@ -8,7 +8,7 @@
     - [Turnkey Fileserver](https://www.turnkeylinux.org/fileserver)
 - Virtual Machines:
     - [Jellyfin](https://github.com/jellyfin/jellyfin)[^1]
-        - [Sonarr V4](https://sonarr.tv/)
+        - [Sonarr](https://sonarr.tv/)
         - [Radarr](https://radarr.video/)
         - [Bazarr](https://www.bazarr.media/)
         - [SABnzbd](https://sabnzbd.org/)
@@ -19,19 +19,16 @@
         - [Nginx Proxy Manager](https://nginxproxymanager.com/)
         - [Gotify](https://gotify.net/)
         - [Jellyseerr](https://github.com/Fallenbagel/jellyseerr)
-        - [Guacamole](https://github.com/boschkundendienst/guacamole-docker-compose)
         - [Watchtower](https://containrrr.dev/watchtower/)
-        - [Portainer](https://docs.portainer.io/start/install-ce)[^3]
         - [Dockge](https://github.com/louislam/dockge)
-        - [Dozzle](https://dozzle.dev/)[^3]
-    - [Ansible](https://docs.ansible.com/ansible/latest/index.html) with [Ansible Semaphore](https://github.com/ansible-semaphore/semaphore)
+        - [Grocy](https://docs.linuxserver.io/images/docker-grocy/)
+        - [Barcodebuddy](https://github.com/Forceu/barcodebuddy-docker)
+        - [Ansible Semaphore](https://docs.semui.co/administration-guide/installation)
+    - [Proxmox Backup Server](https://github.com/wofferl/proxmox-backup-arm64)
 
 Raspberrypi:
-- [Proxmox Backup Server](https://github.com/wofferl/proxmox-backup-arm64)
-- Backup Pi-hole + Unbound
+- Backup [Pi-hole](https://github.com/pi-hole/pi-hole/#one-step-automated-install) + [Unbound](https://docs.pi-hole.net/guides/dns/unbound/)
 
 [^1]:[Some Settings](https://github.com/Blitzritze/homelab/tree/3dbaa343cc9bb6ce9e8edc5599ff26d274491b66/media).
 
 [^2]:[Docker Compose](https://github.com/Blitzritze/homelab/tree/3dbaa343cc9bb6ce9e8edc5599ff26d274491b66/docker) files.
-
-[^3]:Not sure if or how long these containers will stay.
