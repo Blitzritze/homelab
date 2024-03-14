@@ -1,80 +1,32 @@
 all:
+  vars:
+    ansible_user: ansible
+    ansible_become: true
+    ansible_become_password: "{{ ansible }}"
+    ansible_ssh_password: "{{ ansible }}"
+
   hosts:
     proxmoxve:
       ansible_host: 10.0.0.11
     raspberrypi:
       ansible_host: 10.0.0.12
-    pJellyfin:
-      ansible_host: 10.0.1.1
-      dependencies: proxmoxve
-    pDocker:
-      ansible_host: 10.0.1.2
-      dependencies: proxmoxve
-    pPibound:
-      ansible_host: 10.0.2.1
-      dependencies: proxmoxve
-    pGrafana:
-      ansible_host: 10.0.2.2
-      dependencies: proxmoxve
-    pInfluxDB:
-      ansible_host: 10.0.2.3
-      dependencies: proxmoxve
-    pPython3:
-      ansible_host: 10.0.2.4
-      dependencies: proxmoxve
-    pFileserver:
-      ansible_host: 10.0.2.5
-      dependencies: proxmoxve
 
   children:
-    machines:
-      hosts:
-        proxmoxve:
-          ansible_become: true
-          ansible_user: root
-          ansible_become_password: "{{ proxmoxve }}"
-          ansible_ssh_password: "{{ proxmoxve }}"
-        raspberrypi:
-          ansible_become: true
-          ansible_user: root
-          ansible_become_password: "{{ raspberrypi }}"
-          ansible_ssh_password: "{{ raspberrypi }}"
     virtual_machines:
       hosts:
-        pDocker:
-          ansible_become: true
-          ansible_user: root
-          ansible_become_password: "{{ pdocker }}"
-          ansible_ssh_password: "{{ pdocker }}"
         pJellyfin:
-          ansible_become: true
-          ansible_user: root
-          ansible_become_password: "{{ pjellyfin }}"
-          ansible_ssh_password: "{{ pjellyfin }}"
+          ansible_host: 10.0.1.1      
+        pBackup:
+          ansible_host: 10.0.1.4                    
     container:
       hosts:
         pPibound:
-          ansible_become: true
-          ansible_user: root
-          ansible_become_password: "{{ ppibound }}"
-          ansible_ssh_password: "{{ ppibound }}"
+          ansible_host: 10.0.2.1
         pGrafana:
-          ansible_become: true
-          ansible_user: root
-          ansible_become_password: "{{ pgrafana }}"
-          ansible_ssh_password: "{{ pgrafana }}"
+          ansible_host: 10.0.2.2
         pInfluxDB:
-          ansible_become: true
-          ansible_user: root
-          ansible_become_password: "{{ pinfluxdb }}"
-          ansible_ssh_password: "{{ pinfluxdb }}"
+          ansible_host: 10.0.2.3
         pPython3:
-          ansible_become: true
-          ansible_user: root
-          ansible_become_password: "{{ ppython3 }}"
-          ansible_ssh_password: "{{ ppython3 }}"
+          ansible_host: 10.0.2.4
         pFileserver:
-          ansible_become: true
-          ansible_user: root
-          ansible_become_password: "{{ pfileserver }}"
-          ansible_ssh_password: "{{ pfileserver }}"
+          ansible_host: 10.0.2.5
