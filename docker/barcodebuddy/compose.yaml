@@ -1,0 +1,17 @@
+version: "3.3"
+services:
+  barcodebuddy:
+    container_name: barcodebuddy
+    hostname: dBarcodebuddy
+    volumes:
+      - ./data:/config
+    image: f0rc3/barcodebuddy:latest
+    environment:
+      - TZ=Europe/Berlin
+    networks:
+      home:
+        ipv4_address: IP_ADDRESS
+    dns: DNS_RESOLVER
+networks:
+  home:
+    external: true

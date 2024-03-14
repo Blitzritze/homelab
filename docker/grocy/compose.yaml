@@ -1,0 +1,20 @@
+version: "3.3"
+services:
+  grocy:
+    container_name: grocy
+    hostname: dGrocy
+    environment:
+      - PUID=1000
+      - PGID=1000
+      - TZ=Europe/Berlin
+    volumes:
+      - ./data:/config:rw
+    restart: unless-stopped
+    image: lscr.io/linuxserver/grocy:latest
+    networks:
+      home:
+        ipv4_address: IP_ADDRESS
+    dns: DNS_RESOLVER
+networks:
+  home:
+    external: true
