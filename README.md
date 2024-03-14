@@ -29,6 +29,6 @@
 Raspberrypi:
 - Backup [Pi-hole](https://github.com/pi-hole/pi-hole/#one-step-automated-install) + [Unbound](https://docs.pi-hole.net/guides/dns/unbound/)
 
-[^1]:[Some Settings](https://github.com/Blitzritze/homelab/tree/3dbaa343cc9bb6ce9e8edc5599ff26d274491b66/media).
+[^1]:[My Settings](https://github.com/Blitzritze/homelab/tree/main/media).
 
-[^2]:[Docker Compose](https://github.com/Blitzritze/homelab/tree/3dbaa343cc9bb6ce9e8edc5599ff26d274491b66/docker) files.
+[^2]:[My Compose](https://github.com/Blitzritze/homelab/tree/main/docker) files.
