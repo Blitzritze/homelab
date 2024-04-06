@@ -14,19 +14,15 @@ all:
   children:
     virtual_machines:
       hosts:
-        pJellyfin:
-          ansible_host: 10.0.1.1      
-        pBackup:
-          ansible_host: 10.0.1.4                    
+        pdocker:
+          ansible_host: 10.0.1.1                        
     container:
       hosts:
-        pPibound:
+        ppibound:
           ansible_host: 10.0.2.1
-        pGrafana:
+        pnas:
           ansible_host: 10.0.2.2
-        pInfluxDB:
+        pjellyfin:
           ansible_host: 10.0.2.3
-        pPython3:
+        pcolman:
           ansible_host: 10.0.2.4
-        pFileserver:
-          ansible_host: 10.0.2.5
