@@ -1,20 +1,17 @@
-version: "3.3"
 services:
   server:
     container_name: vaultwarden
-    hostname: dVaultwarden
+    hostname: vaultwarden
     volumes:
       - ./data:/data/:rw
     restart: unless-stopped
     image: vaultwarden/server:latest
-    ports: []
     environment:
       - TZ=Europe/Berlin
+    ports:
+      - 5003:80
     networks:
-      home:
-        ipv4_address: IP_ADDRESS
-    dns: DNS_RESOLVER
-    depends_on: []
+      - home
 networks:
   home:
     external: true

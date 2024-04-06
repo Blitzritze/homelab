@@ -1,20 +1,21 @@
-version: "3.8"
 services:
   nginx:
     container_name: npm
-    hostname: dNpm
+    hostname: npm
     image: jc21/nginx-proxy-manager:latest
     restart: unless-stopped
     volumes:
       - ./data:/data:rw
       - ./letsencrypt:/etc/letsencrypt:rw
-    environment: []
+      - ./_hsts_map.conf:/app/templates/_hsts_map.conf
+    environment:
+      - TZ=Europe/Berlin
+    ports:
+      - 80:80
+      - 443:443
+      - 5001:81
     networks:
-      home:
-        ipv4_address: IP_ADDRESS
-    dns: DNS_RESOLVER
-    depends_on: []
-    ports: []
+      - home
 networks:
   home:
     external: true

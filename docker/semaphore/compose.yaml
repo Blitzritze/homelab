@@ -3,7 +3,7 @@ services:
     restart: unless-stopped
     image: mysql:8.0
     container_name: mysql
-    hostname: dMysql
+    hostname: mysql
     volumes:
       - ./data/mysql:/var/lib/mysql
     environment:
@@ -13,20 +13,18 @@ services:
       MYSQL_PASSWORD: ${MYSQL_SEMAPHORE_PASSWORD}
       TZ: Europe/Berlin
     networks:
-      home:
-        ipv4_address: IP_ADDRESS
-    dns: DNS_RESOLVER
+      - home
   semaphore:
     restart: unless-stopped
     image: semaphoreui/semaphore:latest
     container_name: semaphore
-    hostname: dSemaphore
+    hostname: semaphore
     volumes:
       - ./data/semaphore/vault:/etc/ansible/vault:rw
     environment:
       SEMAPHORE_DB_USER: semaphore
       SEMAPHORE_DB_PASS: ${MYSQL_SEMAPHORE_PASSWORD}
-      SEMAPHORE_DB_HOST: 10.10.0.14
+      SEMAPHORE_DB_HOST: mysql
       SEMAPHORE_DB_PORT: 3306
       SEMAPHORE_DB_DIALECT: mysql
       SEMAPHORE_DB: semaphore
@@ -40,10 +38,10 @@ services:
       TZ: Europe/Berlin
     depends_on:
       - mysql # for postgres, change to: postgres
+    ports:
+      - 5007:3000
     networks:
-      home:
-        ipv4_address: IP_ADDRESS
-    dns: DNS_RESOLVER
+      - home
 networks:
   home:
     external: true

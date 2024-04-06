@@ -1,20 +1,18 @@
-version: "3"
 services:
   jellyseerr:
     image: fallenbagel/jellyseerr:latest
     container_name: jellyseerr
-    hostname: dJellyseerr
+    hostname: jellyseerr
     environment:
       - LOG_LEVEL=debug
       - TZ=Europe/Berlin
     volumes:
       - ./data:/app/config:rw
     restart: unless-stopped
+    ports:
+      - 5010:5055
     networks:
-      home:
-        ipv4_address: IP_ADDRESS
-    dns: DNS_RESOLVER
-    depends_on: []
+      - home
 networks:
   home:
     external: true

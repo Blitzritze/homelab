@@ -1,8 +1,7 @@
-version: "3"
 services:
   watchtower:
     container_name: watchtower
-    hostname: dWatchtower
+    hostname: watchtower
     image: containrrr/watchtower
     restart: unless-stopped
     environment:
@@ -10,16 +9,12 @@ services:
       - WATCHTOWER_CLEANUP=true
       - WATCHTOWER_SCHEDULE=0 0 5 * * *
       - WATCHTOWER_NOTIFICATIONS=gotify
-      - WATCHTOWER_NOTIFICATION_GOTIFY_URL=GOTIFY_URL
-      - WATCHTOWER_NOTIFICATION_GOTIFY_TOKEN=TOKEN
+      - WATCHTOWER_NOTIFICATION_GOTIFY_URL={URL}
+      - WATCHTOWER_NOTIFICATION_GOTIFY_TOKEN=ASjh_pEc_NRToeU
     volumes:
       - /var/run/docker.sock:/var/run/docker.sock
-    ports: []
     networks:
-      home:
-        ipv4_address: IP_ADDRESS
-    dns: DNS_RESOLVER
-    depends_on: []
+      - home
 networks:
   home:
     external: true

@@ -1,20 +1,18 @@
-version: "3"
 services:
   organizr:
     container_name: organizr
-    hostname: dOrganizr
+    hostname: organizr
     image: organizr/organizr
     restart: unless-stopped
     environment:
+      - TZ=Europe/Berlin
       - fpm=true
     volumes:
       - ./data:/config:rw
+    ports:
+      - 5011:80
     networks:
-      home:
-        ipv4_address: IP_ADDRESS
-    dns: DNS_RESOLVER
-    depends_on: []
-    ports: []
+      - home
 networks:
   home:
     external: true
