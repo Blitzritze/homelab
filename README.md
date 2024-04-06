@@ -9,8 +9,8 @@ To expand the number of SATA connections, a M.2 to SATA controller with an ASM11
     - Alpine SAMBA File Share
     - [Jellyfin](https://jellyfin.org/docs/general/installation/linux) & [Audiobookshelf](https://www.audiobookshelf.org/docs/#linux-install-deb)
     - [Arrs](https://wiki.servarr.com/)
-        - [Sonarr](https://sonarr.tv/)
-        - [Radarr](https://radarr.video/)
+        - [Sonarr](https://sonarr.tv/)[^1]
+        - [Radarr](https://radarr.video/)[^1]
         - [Bazarr](https://www.bazarr.media/)
         - [Prowlarr](https://github.com/Prowlarr/Prowlarr)
         - [SABnzbd](https://sabnzbd.org/)
