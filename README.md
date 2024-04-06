@@ -1,5 +1,5 @@
 # Homelab
-ASRock N100M motherboard and Cooler Master MWE 600 PSU. 4 HDDs for NAS storage and one SSD for OS/VM/LXC storage. 
+ASRock N100M motherboard and Cooler Master MWE 600 PSU. 4 HDDs for NAS and one SSD for OS/VM/LXC storage. 
 
 To expand the number of SATA connections, a M.2 to SATA controller with an ASM1166 chip is used.
 
