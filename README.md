@@ -18,7 +18,6 @@
         - [Radarr](https://radarr.video/)[^1]
         - [Bazarr](https://www.bazarr.media/)
         - [Prowlarr](https://github.com/Prowlarr/Prowlarr)
-        - [SABnzbd](https://sabnzbd.org/)
 - Virtual Machines:
     - [Docker](https://docs.docker.com/engine/install/)[^2]
         - [Vaultwarden](https://github.com/dani-garcia/vaultwarden)
@@ -28,13 +27,25 @@
         - [Jellyseerr](https://github.com/Fallenbagel/jellyseerr)
         - [Watchtower](https://containrrr.dev/watchtower/)
         - [Dockge](https://github.com/louislam/dockge)
-        - [Grocy](https://docs.linuxserver.io/images/docker-grocy/)
-        - [Barcodebuddy](https://github.com/Forceu/barcodebuddy-docker)
-        - [Ansible Semaphore](https://docs.semui.co/administration-guide/installation)
+        - [SABnzbd](https://sabnzbd.org/)
+    - [Azerothcore](https://www.azerothcore.org/) with modules
+        - [mod-playerbots](https://github.com/liyunfan1223/mod-playerbots)
+        - [DungeonRespawn](https://github.com/AnchyDev/DungeonRespawn)
+        - [mod-account-achievements](https://github.com/azerothcore/mod-account-achievements)
+        - [mod-ah-bot](https://github.com/azerothcore/mod-ah-bot)
+        - [mod-aoe-loot](https://github.com/azerothcore/mod-aoe-loot)
+        - [mod-arac](https://github.com/heyitsbench/mod-arac)
+        - [mod-groupquest](https://github.com/noisiver/mod-groupquests)
+        - [mod-instance-reset](https://github.com/azerothcore/mod-instance-reset)
+        - [mod-no-hearthstone-cooldown](https://github.com/BytesGalore/mod-no-hearthstone-cooldown)
+        - [mod-transmog](https://github.com/azerothcore/mod-transmog)
+        - [mod-vanilla-naxxramas](https://github.com/sogladev/mod-vanilla-naxxramas)
+        - [mod-warlock-pet-rename](https://github.com/silviu20092/mod-warlock-pet-rename)
 
 
 [Raspberry Pi 4 Model B Rev 1.5 2GB](https://www.raspberrypi.com/products/raspberry-pi-4-model-b/):
 - Backup [Pi-hole](https://github.com/pi-hole/pi-hole/#one-step-automated-install) + [Unbound](https://docs.pi-hole.net/guides/dns/unbound/)
+- [Zabbix](https://www.zabbix.com/download?zabbix=6.0&os_distribution=debian_arm64&os_version=12&components=server_frontend_agent&db=mysql&ws=apache)
 - [Proxmox Backup Server](https://github.com/wofferl/proxmox-backup-arm64)
 
 [^1]:My [Settings](https://github.com/Blitzritze/homelab/tree/main/media).
